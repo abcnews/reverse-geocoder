@@ -1,0 +1,40 @@
+{
+  "name": "find-region",
+  "version": "1.0.0-pre",
+  "description": "A project generated from aunty's svelte project template.",
+  "license": "MIT",
+  "private": true,
+  "contributors": [
+    "Simon Elvery <simon@elvery.net>"
+  ],
+  "aunty": {
+    "type": "svelte"
+  },
+  "scripts": {
+    "start": "aunty serve",
+    "test": "aunty test",
+    "build": "aunty build && esbuild src/index.ts --sourcemap --bundle --outfile=.build/index.js"
+  },
+  "abc": {
+    "css": {
+      "libraryDir": "./node_modules/@abcaustralia/nucleus/css",
+      "logVariables": "false"
+    }
+  },
+  "devDependencies": {
+    "@abcnews/aunty": "^12.1.1",
+    "@testing-library/svelte": "^3.0.3",
+    "@types/geojson": "^7946.0.8",
+    "@types/jest": "^27.4.1",
+    "@types/webpack-env": "^1.16.3",
+    "esbuild": "^0.14.23"
+  },
+  "dependencies": {
+    "@abcnews/alternating-case-to-object": "^3.0.2",
+    "@abcnews/env-utils": "^3.0.0",
+    "@abcnews/mount-utils": "^2.0.0",
+    "@turf/turf": "^6.5.0",
+    "flatgeobuf": "^3.21.3",
+    "svelte": "^3.46.4"
+  }
+}
