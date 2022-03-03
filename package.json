@@ -1,7 +1,7 @@
 {
-  "name": "find-region",
+  "name": "reverse-geocoder",
   "version": "1.0.0-pre",
-  "description": "A project generated from aunty's svelte project template.",
+  "description": "Inexpensive, flat-file based reverse geocoding",
   "license": "MIT",
   "private": true,
   "contributors": [
@@ -13,7 +13,7 @@
   "scripts": {
     "start": "aunty serve",
     "test": "aunty test",
-    "build": "aunty build && esbuild src/index.ts --sourcemap --bundle --outfile=.build/index.js"
+    "build": "aunty build && esbuild src/lib.ts --sourcemap --bundle --format=esm --outfile=.build/esm.js"
   },
   "abc": {
     "css": {
@@ -33,8 +33,10 @@
     "@abcnews/alternating-case-to-object": "^3.0.2",
     "@abcnews/env-utils": "^3.0.0",
     "@abcnews/mount-utils": "^2.0.0",
+    "@turf/boolean-point-in-polygon": "^6.5.0",
     "@turf/turf": "^6.5.0",
     "flatgeobuf": "^3.21.3",
+    "maplibre-gl": "^2.1.6",
     "svelte": "^3.46.4"
   }
 }

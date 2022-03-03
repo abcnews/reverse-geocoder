@@ -1,19 +1,24 @@
-import { geojson } from 'flatgeobuf';
-import type { BBox, FeatureCollection, Feature } from 'geojson';
+import acto from '@abcnews/alternating-case-to-object';
+import { whenDOMReady } from '@abcnews/env-utils';
+import { getMountValue, selectMounts } from '@abcnews/mount-utils';
+import type { Mount } from '@abcnews/mount-utils';
+import App from './components/App.svelte';
 
-export const getFeaturesByBBox = async (source: string, box: BBox): Promise<FeatureCollection> => {
-  const [minX, minY, maxX, maxY] = box;
+let appMountEl: Mount;
+let appProps;
 
-  const res = geojson.deserialize(source, { minX, minY, maxX, maxY });
+whenDOMReady.then(() => {
+  [appMountEl] = selectMounts('findregion');
 
-  // If it's not an iterator, it's a feature collection, so return it.
-  if ('type' in res) return res as FeatureCollection;
-
-  // If it is an iterator — turn it into a feature collection.
-  const collection: FeatureCollection = { type: 'FeatureCollection', features: [] };
-
-  for await (let feature of res) {
-    collection.features.push(feature as Feature);
+  if (appMountEl) {
+    appProps = acto(getMountValue(appMountEl));
+    new App({
+      target: appMountEl,
+      props: appProps
+    });
   }
-  return collection;
-};
+});
+
+if (process.env.NODE_ENV === 'development') {
+  console.debug(`[find-region] public path: ${__webpack_public_path__}`);
+}
