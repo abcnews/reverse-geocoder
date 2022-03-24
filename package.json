@@ -7,8 +7,9 @@
     "Simon Elvery <simon@elvery.net>"
   ],
   "type": "module",
+  "main": "./dist/lib.js",
+  "types": "./dist/lib.d.ts",
   "exports": {
-    "./package.json": "./package.json",
     ".": "./dist/lib.js"
   },
   "aunty": {
