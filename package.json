@@ -6,6 +6,11 @@
   "contributors": [
     "Simon Elvery <simon@elvery.net>"
   ],
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./.build/esm.js"
+  },
   "aunty": {
     "type": "svelte"
   },
@@ -17,7 +22,6 @@
     "version": "npm run build"
   },
   "np": {
-    "contents": "./.build",
     "branch": "main",
     "yarn": false
   },
