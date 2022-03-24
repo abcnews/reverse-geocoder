@@ -9,7 +9,7 @@
   "type": "module",
   "exports": {
     "./package.json": "./package.json",
-    ".": "./.build/esm.js"
+    ".": "./dist/lib.js"
   },
   "aunty": {
     "type": "svelte"
@@ -17,9 +17,10 @@
   "scripts": {
     "start": "aunty serve",
     "test": "aunty test -- --passWithNoTests",
-    "build": "aunty build && esbuild src/lib.ts --sourcemap --bundle --format=esm --outfile=.build/esm.js",
+    "build": "aunty build",
+    "package": "tsup src/lib.ts --sourcemap --dts --format esm",
     "release": "np",
-    "version": "npm run build"
+    "version": "npm run package"
   },
   "np": {
     "branch": "main",
@@ -40,8 +41,8 @@
     "@types/geojson": "^7946.0.8",
     "@types/jest": "^27.4.1",
     "@types/webpack-env": "^1.16.3",
-    "esbuild": "^0.14.23",
-    "np": "^7.6.1"
+    "np": "^7.6.1",
+    "tsup": "^5.12.1"
   },
   "dependencies": {
     "@abcnews/alternating-case-to-object": "^3.0.2",
