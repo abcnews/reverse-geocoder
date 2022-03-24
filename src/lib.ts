@@ -1,4 +1,4 @@
-import { deserialize } from 'flatgeobuf/lib/mjs/geojson';
+import { deserialize } from 'flatgeobuf/lib/mjs/geojson.js';
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 import type { BBox, FeatureCollection, Position } from 'geojson';
 import { sources } from './constants';
