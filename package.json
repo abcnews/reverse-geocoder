@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "aunty serve",
-    "test": "aunty test",
+    "test": "aunty test -- --passWithNoTests",
     "build": "aunty build && esbuild src/lib.ts --sourcemap --bundle --format=esm --outfile=.build/esm.js",
     "release": "np",
     "version": "npm run build"
