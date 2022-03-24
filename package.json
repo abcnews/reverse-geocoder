@@ -1,6 +1,6 @@
 {
   "name": "@abcnews/reverse-geocoder",
-  "version": "1.0.0-pre.0",
+  "version": "0.0.0",
   "description": "Inexpensive, flat-file based reverse geocoding",
   "license": "MIT",
   "contributors": [
