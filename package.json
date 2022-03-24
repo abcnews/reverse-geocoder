@@ -1,6 +1,6 @@
 {
   "name": "reverse-geocoder",
-  "version": "1.0.0-pre",
+  "version": "1.0.0-pre.0",
   "description": "Inexpensive, flat-file based reverse geocoding",
   "license": "MIT",
   "private": true,
