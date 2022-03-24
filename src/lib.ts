@@ -1,6 +1,6 @@
 import { geojson } from 'flatgeobuf';
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
-import type { BBox, FeatureCollection, Feature, Position } from 'geojson';
+import type { BBox, FeatureCollection, Position } from 'geojson';
 import { sources } from './constants';
 
 /*
@@ -19,13 +19,13 @@ export const getFeaturesByBBox = async (source: string, box: BBox): Promise<Feat
   const res = geojson.deserialize(source, { minX, minY, maxX, maxY });
 
   // If it's not an iterator, it's a feature collection, so return it.
-  if ('type' in res) return res as FeatureCollection;
+  if ('type' in res) return res;
 
   // If it is an iterator — turn it into a feature collection.
   const collection: FeatureCollection = { type: 'FeatureCollection', features: [] };
 
   for await (let feature of res) {
-    collection.features.push(feature as Feature);
+    collection.features.push(feature);
   }
   return collection;
 };
