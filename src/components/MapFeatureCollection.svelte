@@ -1,30 +1,28 @@
 <script lang="ts">
-	import type { FeatureCollection } from 'geojson';
+  import type { FeatureCollection } from 'geojson';
 
-	import { getContext } from 'svelte';
-	const { getMap } = getContext('map');
-	const map = getMap();
+  import { getContext } from 'svelte';
+  const { getMap } = getContext('map');
+  const map = getMap();
 
-	export let features: FeatureCollection;
-	export let name: string;
+  export let features: FeatureCollection;
+  export let name: string;
 
-	// Feature collection
-	map.addSource(name, {
-		type: 'geojson',
-		data: features
-	});
+  // Feature collection
+  map.addSource(name, {
+    type: 'geojson',
+    data: features
+  });
 
-	map.addLayer({
-		id: name,
-		type: 'fill',
-		source: name,
-		paint: {
-			'fill-color': '#088',
-			'fill-opacity': 0.8
-		}
-	});
+  map.addLayer({
+    id: name,
+    type: 'fill',
+    source: name,
+    paint: {
+      'fill-color': '#088',
+      'fill-opacity': 0.8
+    }
+  });
 
-	$: console.log('features :>> ', features);
-
-	$: map.getSource(name).setData(features);
+  $: map.getSource(name).setData(features);
 </script>

@@ -5,11 +5,6 @@
   let mapElement: HTMLElement;
   let map: Map;
 
-  // $: console.log('features :>> ', features);
-  // $: map && console.log('features1 :>> ', features);
-
-  // $: map && map.loaded() && map.getSource('features').setData(features);
-
   setContext('map', {
     getMap: () => map
   });
@@ -42,7 +37,6 @@
   onDestroy(() => {
     if (map) {
       map.remove();
-      map = undefined;
     }
   });
 </script>

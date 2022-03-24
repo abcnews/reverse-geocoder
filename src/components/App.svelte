@@ -50,8 +50,6 @@
   };
 
   $: getFeaturesByLonLat(dataset.source, position).then(c => (collection = c));
-
-  $: console.log('collection :>> ', collection);
 </script>
 
 <div>
