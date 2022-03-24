@@ -25,6 +25,9 @@
     "branch": "main",
     "yarn": false
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "abc": {
     "css": {
       "libraryDir": "./node_modules/@abcaustralia/nucleus/css",
