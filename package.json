@@ -13,7 +13,14 @@
   "scripts": {
     "start": "aunty serve",
     "test": "aunty test",
-    "build": "aunty build && esbuild src/lib.ts --sourcemap --bundle --format=esm --outfile=.build/esm.js"
+    "build": "aunty build && esbuild src/lib.ts --sourcemap --bundle --format=esm --outfile=.build/esm.js",
+    "release": "np",
+    "version": "npm run build"
+  },
+  "np": {
+    "contents": "./.build",
+    "branch": "main",
+    "yarn": false
   },
   "abc": {
     "css": {
@@ -27,7 +34,8 @@
     "@types/geojson": "^7946.0.8",
     "@types/jest": "^27.4.1",
     "@types/webpack-env": "^1.16.3",
-    "esbuild": "^0.14.23"
+    "esbuild": "^0.14.23",
+    "np": "^7.6.1"
   },
   "dependencies": {
     "@abcnews/alternating-case-to-object": "^3.0.2",
