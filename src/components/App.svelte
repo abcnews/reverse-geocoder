@@ -37,6 +37,11 @@
       name: 'Statistical Areal 4',
       source: 'ASGS_SA4_2021',
       nameProp: 'SA4_NAME_2021'
+    },
+    {
+      name: 'ABC Region',
+      source: 'ABC_REGIONS',
+      nameProp: 'regionName'
     }
   ];
 

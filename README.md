@@ -34,17 +34,19 @@ The library should work with any flatgeobuf file that has an index and is availa
 
 For convenience a number of Australian focused data sources can be referenced by the keys below rather than a URL.
 
-| key             | description                                  | source                                 |
-| --------------- | -------------------------------------------- | -------------------------------------- |
-| `AEC_ELB_2021`  | The 2021 Commonwealth Electorates            | [Australian Electoral Commission][aec] |
-| `ASGS_MB_2021`  | ASGS Mesh Blocks 2021 (GDA2020)              | [Australian Bureau of Statistics][abs] |
-| `ASGS_SA1_2021` | ASGS Statistical Area Level 1 2021 (GDA2020) | [Australian Bureau of Statistics][abs] |
-| `ASGS_SA2_2021` | ASGS Statistical Area Level 2 2021 (GDA2020) | [Australian Bureau of Statistics][abs] |
-| `ASGS_SA3_2021` | ASGS Statistical Area Level 3 2021 (GDA2020) | [Australian Bureau of Statistics][abs] |
-| `ASGS_SA4_2021` | ASGS Statistical Area Level 4 2021 (GDA2020) | [Australian Bureau of Statistics][abs] |
+| key             | description                                  | source                                     |
+| --------------- | -------------------------------------------- | ------------------------------------------ |
+| `AEC_ELB_2021`  | The 2021 Commonwealth Electorates            | [Australian Electoral Commission][aec]     |
+| `ASGS_MB_2021`  | ASGS Mesh Blocks 2021 (GDA2020)              | [Australian Bureau of Statistics][abs]     |
+| `ASGS_SA1_2021` | ASGS Statistical Area Level 1 2021 (GDA2020) | [Australian Bureau of Statistics][abs]     |
+| `ASGS_SA2_2021` | ASGS Statistical Area Level 2 2021 (GDA2020) | [Australian Bureau of Statistics][abs]     |
+| `ASGS_SA3_2021` | ASGS Statistical Area Level 3 2021 (GDA2020) | [Australian Bureau of Statistics][abs]     |
+| `ASGS_SA4_2021` | ASGS Statistical Area Level 4 2021 (GDA2020) | [Australian Bureau of Statistics][abs]     |
+| `ABC_REGIONS`   | ABC's broadcast regions                      | [Australian Broadcasting Corporation][abc] |
 
 [aec]: https://www.aec.gov.au/Electorates/gis/gis_datadownload.htm
 [abs]: https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/digital-boundary-files
+[abc]: https://stash.abc-dev.net.au/projects/RMP/repos/rmp-regionlocation-data/browse/ABC%20Regions/abc-regions.geojson
 
 ### Preparing data sources
 
