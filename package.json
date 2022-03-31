@@ -13,12 +13,15 @@
     ".": "./dist/lib.js"
   },
   "aunty": {
-    "type": "svelte"
+    "type": "svelte",
+    "serve": {
+      "hasBundleAnalysis": true
+    }
   },
   "scripts": {
     "start": "aunty serve",
     "test": "aunty test -- --passWithNoTests",
-    "build": "aunty build",
+    "build": "aunty build && npm run package && esbuild dist/lib.js --bundle --outfile=.build/dist/lib.js",
     "package": "tsup src/lib.ts --sourcemap --dts --format esm",
     "release": "np",
     "version": "npm run package"
@@ -42,6 +45,7 @@
     "@types/geojson": "^7946.0.8",
     "@types/jest": "^27.4.1",
     "@types/webpack-env": "^1.16.3",
+    "esbuild": "^0.14.29",
     "np": "^7.6.1",
     "tsup": "^5.12.1"
   },
