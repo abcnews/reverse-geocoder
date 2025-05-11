@@ -20,6 +20,7 @@
   },
   "scripts": {
     "start": "aunty serve",
+    "dev": "aunty serve",
     "test": "aunty test -- --passWithNoTests",
     "build": "aunty build && npm run package && esbuild dist/lib.js --bundle --outfile=.build/dist/lib.js",
     "package": "tsup src/lib.ts --sourcemap --dts --format esm",
