@@ -12,7 +12,7 @@ All functions require a data source as their first parameter. This should be a U
 
 ### `getFeaturesByBBox(source: string, box: [number, number, number, number]): Promise<FeatureCollection>`
 
-Takes an array definding a bounding box with coordinates in the order west, south, east, north.
+Takes an array defining a bounding box with coordinates in the order west, south, east, north.
 
 Returns a GeoJSON feature collection object including all features that overlap with the bounding box. It's possible this function will return some features that are outside the bounding box. If you need to be certain they're overlapping, you'll need to do an additional check on the returned features.
 

@@ -40,23 +40,23 @@
     }
   },
   "devDependencies": {
-    "@abcnews/aunty": "^12.1.1",
-    "@testing-library/svelte": "^3.0.3",
+    "@abcnews/aunty": "^16.0.0",
+    "@testing-library/svelte": "^5.2.7",
     "@types/geojson": "^7946.0.8",
-    "@types/jest": "^27.4.1",
+    "@types/jest": "^29.5.14",
     "@types/webpack-env": "^1.16.3",
-    "esbuild": "^0.14.29",
-    "np": "^7.6.1",
-    "tsup": "^5.12.1"
+    "esbuild": "^0.25.4",
+    "np": "^10.2.0",
+    "tsup": "^8.4.0"
   },
   "dependencies": {
     "@abcnews/alternating-case-to-object": "^3.0.2",
-    "@abcnews/env-utils": "^3.0.0",
-    "@abcnews/mount-utils": "^2.0.0",
-    "@turf/boolean-point-in-polygon": "^6.5.0",
-    "@turf/turf": "^6.5.0",
-    "flatgeobuf": "^3.21.3",
-    "maplibre-gl": "^2.1.6",
-    "svelte": "^3.46.4"
+    "@abcnews/env-utils": "^4.0.0",
+    "@abcnews/mount-utils": "^3.0.0",
+    "@turf/boolean-point-in-polygon": "^7.2.0",
+    "@turf/turf": "^7.2.0",
+    "flatgeobuf": "^4.0.1",
+    "maplibre-gl": "^5.5.0",
+    "svelte": "^3.59.2"
   }
 }
