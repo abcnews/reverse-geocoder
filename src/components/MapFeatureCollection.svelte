@@ -1,12 +1,18 @@
 <script lang="ts">
+  import { run } from 'svelte/legacy';
+
   import type { FeatureCollection } from 'geojson';
 
   import { getContext } from 'svelte';
   const { getMap } = getContext('map');
   const map = getMap();
 
-  export let features: FeatureCollection;
-  export let name: string;
+  interface Props {
+    features: FeatureCollection;
+    name: string;
+  }
+
+  let { features, name }: Props = $props();
 
   // Feature collection
   map.addSource(name, {
@@ -24,5 +30,7 @@
     }
   });
 
-  $: map.getSource(name).setData(features);
+  run(() => {
+    map.getSource(name).setData(features);
+  });
 </script>

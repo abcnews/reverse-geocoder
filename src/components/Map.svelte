@@ -1,37 +1,49 @@
 <script lang="ts">
   import { Map, NavigationControl } from 'maplibre-gl';
-  import { onMount, onDestroy, setContext } from 'svelte';
+  import { onDestroy, setContext } from 'svelte';
+  interface Props {
+    children?: import('svelte').Snippet;
+  }
 
-  let mapElement: HTMLElement;
-  let map: Map;
+  let { children }: Props = $props();
+
+  let mapElement: HTMLElement | undefined = $state();
+  let map: Map | undefined = $state();
 
   setContext('map', {
     getMap: () => map
   });
 
-  onMount(() => {
-    // Instantiate the map
-    const neoMap = new Map({
-      container: mapElement,
-      // style: 'https://demotiles.maplibre.org/style.json',
-      style: 'https://www.abc.net.au/res/sites/news-projects/map-vector-style-bright/style.json',
-      bounds: [113.338953078, -43.6345972634, 153.569469029, -10.6681857235],
-      doubleClickZoom: true,
-      dragPan: true,
-      dragRotate: false
-    });
+  let neoMap = $derived.by(() => {
+    const mapInstance =
+      mapElement &&
+      new Map({
+        container: mapElement,
+        // style: 'https://demotiles.maplibre.org/style.json',
+        style: 'https://www.abc.net.au/res/sites/news-projects/map-vector-style-bright/style.json',
+        bounds: [113.338953078, -43.6345972634, 153.569469029, -10.6681857235],
+        doubleClickZoom: true,
+        dragPan: true,
+        dragRotate: false
+      });
 
-    neoMap.on('load', () => {
-      map = neoMap;
-      // Add navigation controls
-      map.addControl(
-        new NavigationControl({
-          showCompass: false,
-          showZoom: true
-        }),
-        'top-left'
-      );
-    });
+    return mapInstance;
+  });
+
+  $effect(() => {
+    if (neoMap) {
+      neoMap.on('load', () => {
+        map = neoMap;
+        // Add navigation controls
+        map.addControl(
+          new NavigationControl({
+            showCompass: false,
+            showZoom: true
+          }),
+          'top-left'
+        );
+      });
+    }
   });
 
   onDestroy(() => {
@@ -42,7 +54,7 @@
 </script>
 
 <div class="map" bind:this={mapElement}>
-  {#if map}<slot />{/if}
+  {#if map}{@render children?.()}{/if}
 </div>
 
 <style>

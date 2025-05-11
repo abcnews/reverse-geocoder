@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { run } from 'svelte/legacy';
+
   import type { Position, FeatureCollection } from 'geojson';
   import Map from './Map.svelte';
   import MapMarker from './MapMarker.svelte';
@@ -45,16 +47,18 @@
     }
   ];
 
-  let dataset: Dataset = datasets[0];
+  let dataset: Dataset = $state(datasets[0]);
 
-  let position: Position = [153.021072, -27.47];
+  let position: Position = $state([153.021072, -27.47]);
 
-  let collection: FeatureCollection = {
+  let collection: FeatureCollection = $state({
     type: 'FeatureCollection',
     features: []
-  };
+  });
 
-  $: getFeaturesByLonLat(dataset.source, position).then(c => (collection = c));
+  run(() => {
+    getFeaturesByLonLat(dataset.source, position).then(c => (collection = c));
+  });
 </script>
 
 <div>

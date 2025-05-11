@@ -8,7 +8,11 @@
 
 	const map = getMap();
 
-	export let location: Position;
+	interface Props {
+		location: Position;
+	}
+
+	let { location = $bindable() }: Props = $props();
 
 	// Add a marker
 	const marker = new Marker()
