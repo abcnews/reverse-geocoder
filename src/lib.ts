@@ -18,9 +18,6 @@ export const getFeaturesByBBox = async (source: string, box: BBox): Promise<Feat
 
   const res = deserialize(source, { minX, minY, maxX, maxY });
 
-  // If it's not an iterator, it's a feature collection, so return it.
-  if ('type' in res) return res;
-
   // If it is an iterator — turn it into a feature collection.
   const collection: FeatureCollection = { type: 'FeatureCollection', features: [] };
 
